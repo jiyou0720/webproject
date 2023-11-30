@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write page</title>
+    <link rel="stylesheet" href="./write.css">
+</head>
+<body>
+    <h1>게시글 작성하기</h1>
+
+    <form id="writeForm" action="/write" method="post" enctype="multipart/form-data">
+        <div class="new_write">
+            <div class="field">
+                <div class="title">
+                    <input type="text" name="title" placeholder="제목">
+                </div>
+            </div>
+            <div class="field">
+                <div class="filebox">
+                    <label for="file">파일찾기</label> 
+                    <input type="file" id="file" name="file">
+                </div>
+            </div>
+            <div class="field">
+                <div class="price">
+                    <input type="text" name="price" placeholder="₩ 가격">
+                </div>
+            </div>
+            <div class="field">
+                <div class="content">
+                    <textarea name="content" cols="30" rows="10" placeholder="판매 게시판에 올릴 게시글 내용을 작성해주세요. 가품 및 판매금지품목은 게시가 제한될 수 있어요."></textarea>
+                </div>
+            </div>
+            <input type="submit" value="게시하기">
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#writeForm').on('submit', function (e) {
+            e.preventDefault();
+    
+            $.ajax({
+                url: '/write',
+                type: 'POST',
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res.message === 'success') {
+                        alert('글이 성공적으로 작성되었습니다.');
+                        location.href = '/post';
+                    } else {
+                        alert('글 작성에 실패하였습니다. 다시 시도해주세요.');
+                    }
+                },
+                error: function (err) {
+                    alert('서버 오류가 발생하였습니다. 다시 시도해주세요.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
