@@ -22,7 +22,7 @@ host: 'svc.sel4.cloudtype.app',
     user: 'root',
     password: '1234',
     database: 'fleamarket',
-    port: 31887;
+    port: 31887
 }).promise();
 module.exports = pool;
 
