@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:14px;
+    background-color: #f5f6f7;
+    line-height: 1.5em;
+    color : #222;
+    margin: 0;
+}
+
+h1{
+    margin: 20px;
+}
+
+.new_write{
+    width: 400px;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+}
+
+.new_write .field{
+    margin :5px 0;
+}
+
+.new_write .field input,
+.new_write .field textarea {
+    border: 1px solid #dadada;
+    padding: 15px;
+    width: 200%;
+    margin-bottom: 5px;
+}
+
+.new_write .field .filebox{
+    display: flex;
+}
+
+.new_write .field .filebox .upload-name {
+    display: flex;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 78%;
+    color: #999999;
+}
+
+.new_write .field .filebox label {
+    display: inline-block;
+    padding: 10px 30px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #C99358;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.new_write .field .filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.new_write input[type=submit]{
+    background-color: #C99358;
+    color:#fff;
+}

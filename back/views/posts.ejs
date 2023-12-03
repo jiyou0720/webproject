@@ -1,0 +1,23 @@
+<!-- posts.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>게시물 목록</title>
+</head>
+<body>
+    <h1>게시물 목록</h1>
+    <% posts.forEach(post => { %>
+        <div>
+            <h2><%= post.title %></h2>
+            <% if(post.price) { %>
+                <p><%= post.price %>원</p>
+            <% } %>
+            <p><%= post.content %></p>
+            <% if(post.file_path) { %>
+                <p>파일 경로: <%= post.file_path %></p>
+            <% } %>
+            <!-- 게시물의 제목, 가격, 내용, 파일 경로, 작성일 등을 표시 -->
+        </div>
+    <% }) %>
+</body>
+</html>
